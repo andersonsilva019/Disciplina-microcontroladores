@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdk-packages>
+<package hash="1648775199412" path="/home/anderson/mcuxpresso/02/SDKPackages/SDK_2_8_0_FRDM-KL43Z.zip" schema="manifest-schema/sdk_manifest_v3.7.xsd"/>
+<package hash="1648775210563" path="/home/anderson/mcuxpresso/02/SDKPackages/SDK_2_2_0_FRDM-KL25Z.zip" schema="manifest-schema/sdk_manifest_v3.3.xsd"/>
+<package hash="1641921508000" path="/usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.core.datamodels.resources_11.5.0.202107051138/override" schema="manifest-schema/sdk_manifest_v3.3.xsd"/>
+<package hash="1641921508000" path="/usr/local/mcuxpressoide-11.5.0_7232/ide/plugins/com.nxp.mcuxpresso.core.datamodels.resources_11.5.0.202107051138/fragments" schema="manifest-schema/sdk_manifest_v3.3.xsd"/>
+</sdk-packages>

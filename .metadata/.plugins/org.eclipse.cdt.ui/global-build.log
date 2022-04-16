@@ -1,0 +1,76 @@
+11:08:17 **** Incremental Build of configuration Debug for project LED ****
+make -r -j4 all 
+Building file: ../source/LED.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_MKL25Z128VLK4_cm0plus -DCPU_MKL25Z128VLK4 -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"/home/anderson/setimo-semestre/micro/work/LED/board" -I"/home/anderson/setimo-semestre/micro/work/LED/source" -I"/home/anderson/setimo-semestre/micro/work/LED" -I"/home/anderson/setimo-semestre/micro/work/LED/startup" -I"/home/anderson/setimo-semestre/micro/work/LED/CMSIS" -I"/home/anderson/setimo-semestre/micro/work/LED/drivers" -I"/home/anderson/setimo-semestre/micro/work/LED/utilities" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LED.d" -MT"source/LED.o" -MT"source/LED.d" -o "source/LED.o" "../source/LED.c"
+Finished building: ../source/LED.c
+ 
+Building target: LED.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="LED.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T LED_Debug.ld -o "LED.axf"  ./utilities/fsl_debug_console.o  ./startup/startup_mkl25z4.o  ./source/LED.o ./source/mtb.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_flash.o ./drivers/fsl_gpio.o ./drivers/fsl_lpsci.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o  ./CMSIS/system_MKL25Z4.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        2876 B       128 KB      2.19%
+            SRAM:        2384 B        16 KB     14.55%
+Finished building target: LED.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "LED.axf"; # arm-none-eabi-objcopy -v -O binary "LED.axf" "LED.bin" ; # checksum -p MKL25Z128xxx4 -d "LED.bin";
+   text	   data	    bss	    dec	    hex	filename
+   2876	      0	   2384	   5260	   148c	LED.axf
+ 
+11:08:27 **** Build of configuration Debug for project LED ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "LED.axf"; # arm-none-eabi-objcopy -v -O binary "LED.axf" "LED.bin" ; # checksum -p MKL25Z128xxx4 -d "LED.bin";
+   text	   data	    bss	    dec	    hex	filename
+   2876	      0	   2384	   5260	   148c	LED.axf
+ 
+11:08:29 **** Incremental Build of configuration Debug for project LED ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "LED.axf"; # arm-none-eabi-objcopy -v -O binary "LED.axf" "LED.bin" ; # checksum -p MKL25Z128xxx4 -d "LED.bin";
+   text	   data	    bss	    dec	    hex	filename
+   2876	      0	   2384	   5260	   148c	LED.axf
+ 
+10:03:03 **** Build of configuration Debug for project LED ****
+make -r -j4 all 
+Building file: ../source/LED.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_MKL25Z128VLK4_cm0plus -DCPU_MKL25Z128VLK4 -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"/home/anderson/setimo-semestre/micro/work/LED/board" -I"/home/anderson/setimo-semestre/micro/work/LED/source" -I"/home/anderson/setimo-semestre/micro/work/LED" -I"/home/anderson/setimo-semestre/micro/work/LED/startup" -I"/home/anderson/setimo-semestre/micro/work/LED/CMSIS" -I"/home/anderson/setimo-semestre/micro/work/LED/drivers" -I"/home/anderson/setimo-semestre/micro/work/LED/utilities" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LED.d" -MT"source/LED.o" -MT"source/LED.d" -o "source/LED.o" "../source/LED.c"
+../source/LED.c: In function 'next':
+../source/LED.c:69:6: error: unknown type name 'SCGC5'
+   69 |     }SCGC5
+      |      ^~~~~
+make[1]: *** [source/subdir.mk:26: source/LED.o] Error 1
+make: *** [makefile:43: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+10:04:08 **** Build of configuration Debug for project LED ****
+make -r -j4 all 
+Building file: ../source/LED.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_MKL25Z128VLK4_cm0plus -DCPU_MKL25Z128VLK4 -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"/home/anderson/setimo-semestre/micro/work/LED/board" -I"/home/anderson/setimo-semestre/micro/work/LED/source" -I"/home/anderson/setimo-semestre/micro/work/LED" -I"/home/anderson/setimo-semestre/micro/work/LED/startup" -I"/home/anderson/setimo-semestre/micro/work/LED/CMSIS" -I"/home/anderson/setimo-semestre/micro/work/LED/drivers" -I"/home/anderson/setimo-semestre/micro/work/LED/utilities" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LED.d" -MT"source/LED.o" -MT"source/LED.d" -o "source/LED.o" "../source/LED.c"
+Finished building: ../source/LED.c
+ 
+Building target: LED.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="LED.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T LED_Debug.ld -o "LED.axf"  ./utilities/fsl_debug_console.o  ./startup/startup_mkl25z4.o  ./source/LED.o ./source/mtb.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_flash.o ./drivers/fsl_gpio.o ./drivers/fsl_lpsci.o ./drivers/fsl_smc.o ./drivers/fsl_uart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o  ./CMSIS/system_MKL25Z4.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        3052 B       128 KB      2.33%
+            SRAM:        2388 B        16 KB     14.58%
+Finished building target: LED.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "LED.axf"; # arm-none-eabi-objcopy -v -O binary "LED.axf" "LED.bin" ; # checksum -p MKL25Z128xxx4 -d "LED.bin";
+   text	   data	    bss	    dec	    hex	filename
+   3052	      0	   2388	   5440	   1540	LED.axf
+ 
+10:04:12 **** Incremental Build of configuration Debug for project LED ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "LED.axf"; # arm-none-eabi-objcopy -v -O binary "LED.axf" "LED.bin" ; # checksum -p MKL25Z128xxx4 -d "LED.bin";
+   text	   data	    bss	    dec	    hex	filename
+   3052	      0	   2388	   5440	   1540	LED.axf
+ 

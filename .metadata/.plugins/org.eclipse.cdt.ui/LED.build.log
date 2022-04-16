@@ -1,0 +1,11 @@
+10:04:12 **** Incremental Build of configuration Debug for project LED ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "LED.axf"; # arm-none-eabi-objcopy -v -O binary "LED.axf" "LED.bin" ; # checksum -p MKL25Z128xxx4 -d "LED.bin";
+   text	   data	    bss	    dec	    hex	filename
+   3052	      0	   2388	   5440	   1540	LED.axf
+ 
+
+10:04:13 Build Finished. 0 errors, 0 warnings. (took 683ms)
+
