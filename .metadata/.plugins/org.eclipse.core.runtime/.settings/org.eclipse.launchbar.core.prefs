@@ -1,7 +1,9 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:LED PE Debug
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:DUTY_CYCLE_PWM PE Debug,org.eclipse.launchbar.core.descriptorType.default\:LED PE Debug,org.eclipse.launchbar.core.descriptorType.default\:LPTMR_PRATICA01_A_KL43Z PE Debug,org.eclipse.launchbar.core.descriptorType.default\:LPTMR_PRATICA01_B_KL43Z PE Debug,org.eclipse.launchbar.core.descriptorType.default\:LPTMR_PRATICA01_C_KL43Z PE Debug,org.eclipse.launchbar.core.descriptorType.default\:MOTOR_PASSOS_KL25Z PE Debug,org.eclipse.launchbar.core.descriptorType.default\:PIT_C_KL25Z PE Debug,org.eclipse.launchbar.core.descriptorType.default\:PIT_KL43Z PE Debug,org.eclipse.launchbar.core.descriptorType.default\:PIT_PRATICA02_A PE Debug,org.eclipse.launchbar.core.descriptorType.default\:TPM_1 PE Debug,org.eclipse.launchbar.core.descriptorType.default\:TPM_2 PE Debug
 eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:DUTY_CYCLE_PWM\ PE\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:DUTY_CYCLE_PWM\ PE\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:LED\ PE\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:LED\ PE\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

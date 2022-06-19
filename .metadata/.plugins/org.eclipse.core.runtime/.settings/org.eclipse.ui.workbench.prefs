@@ -2,6 +2,7 @@
 ENABLED_DECORATORS=org.eclipse.ui.LinkedResourceDecorator\:true,org.eclipse.ui.SymlinkDecorator\:true,org.eclipse.ui.VirtualResourceDecorator\:true,org.eclipse.ui.ContentTypeDecorator\:true,org.eclipse.ui.ResourceFilterDecorator\:false,org.eclipse.cdt.ui.indexedFiles\:false,org.eclipse.cdt.managedbuilder.ui.excludedFile\:true,org.eclipse.cdt.managedbuilder.ui.includeFolder\:true,org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator\:false,org.eclipse.debug.ui.prototype.decorator\:true,org.eclipse.team.cvs.ui.decorator\:false,com.crt.advproject.gui.CRTCustomBuildSettingsDecorator\:true,com.nxp.mcuxpresso.core.datamodels.sdkNatureDecorator\:true,com.nxp.mcuxpresso.core.datamodels.ui.multicoreProjectDecorator\:true,org.eclipse.egit.ui.internal.decorators.GitLightweightDecorator\:true,org.eclipse.egit.ui.internal.repository.RepositoryTreeNodeDecorator\:true,com.nxp.mcuxpresso.core.debug.support.linkserver.launch.\:true,com.nxp.mcuxpresso.addons.docsupport.ui.decorators.projectdecorator\:true,
 UIActivities.org.eclipse.cdt.debug.dsfgdbActivity=true
 eclipse.preferences.version=1
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\n<org.eclipse.ui.commands>\n<keyBinding contextId\="org.eclipse.cdt.ui.cEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+/"/>\n<keyBinding commandId\="org.eclipse.cdt.ui.edit.text.c.toggle.comment" contextId\="org.eclipse.cdt.ui.cEditorScope" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+NUMPAD_DIVIDE"/>\n</org.eclipse.ui.commands>
 org.eclipse.ui.r30.org.eclipse.cdt.ui.ColoredLabels.match_highlight=206,204,247
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=255,255,255
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=255,255,255
@@ -13,7 +14,6 @@ org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_TAB_INNER_KEYLINE_COLOR=205,1
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_TAB_OUTER_KEYLINE_COLOR=205,199,194
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_TAB_OUTLINE_COLOR=205,199,194
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_TAB_SELECTED_TEXT_COLOR=0,1,2
-org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_TAB_TEXT_COLOR=0,0,0
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_TAB_UNSELECTED_TEXT_COLOR=0,1,2
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_UNSELECTED_TABS_COLOR_END=225,222,219
 org.eclipse.ui.r30.org.eclipse.ui.workbench.ACTIVE_UNSELECTED_TABS_COLOR_START=225,222,219
@@ -25,7 +25,6 @@ org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_TAB_INNER_KEYLINE_COLOR=213
 org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_TAB_OUTER_KEYLINE_COLOR=213,208,204
 org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_TAB_OUTLINE_COLOR=213,208,204
 org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_TAB_SELECTED_TEXT_COLOR=0,1,2
-org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_TAB_TEXT_COLOR=35,38,39
 org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_TAB_UNSELECTED_TEXT_COLOR=0,1,2
 org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_END=234,232,230
 org.eclipse.ui.r30.org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_START=234,232,230

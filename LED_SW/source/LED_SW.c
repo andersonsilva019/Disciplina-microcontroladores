@@ -35,7 +35,7 @@ int main(void) {
 
 	// configura como entrada
 	PORT_SetPinConfig(PORTA, pin_sw_1, &config); // sw1
-	PORT_SetPinConfi(PORTD, pin_sw_2, &config); // sw2
+	PORT_SetPinConfig(PORTD, pin_sw_2, &config); // sw2
 
 	/*
 	 * Configure led 1
