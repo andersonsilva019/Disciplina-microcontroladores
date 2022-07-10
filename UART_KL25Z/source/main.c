@@ -20,13 +20,13 @@ volatile char isLedBlueOn;
 volatile uint16_t pwm;
 
 void menu(void){
-	sendDataString("=================================\r\n");
-	sendDataString("a. LED RED ON\r\n");
-	sendDataString("s. LED BLUE ON\r\n");
-	sendDataString("d. LED GREEN ON\r\n");
-	sendDataString("w. LED RED, GREE and BLUE OFF\r\n");
-	sendDataString("q. SELECT SMOOTHING MODE\r\n");
-	sendDataString("=================================\r\n");
+	sendDataString("================================= \r\n");
+	sendDataString("a. LED RED ON \r\n");
+	sendDataString("s. LED BLUE ON \r\n");
+	sendDataString("d. LED GREEN ON \r\n");
+	sendDataString("w. LED RED, GREE and BLUE OFF \r\n");
+	sendDataString("q. SELECT SMOOTHING MODE \r\n");
+	sendDataString("================================= \r\n");
 }
 
 void sleep(int n) {
