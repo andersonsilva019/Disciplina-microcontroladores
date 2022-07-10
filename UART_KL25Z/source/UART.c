@@ -1,11 +1,18 @@
 #include "MKL25Z4.h"
 #include "UART.h"
 
+/**
+ * Fórmula para UART0
+ *
+ * Taxa de transmissão = Clock / ((OSR+1) * BR)
+ */
 void uartConfigBoundRate(uint32_t baud){
 	if(baud == 115200){
+		//BR = 48000000 / (16 * 115200) = 26 (0x1A).
 		UART0->BDL = 0x1A;
 		UART0->BDH = 0x0;
 	}else if(baud == 9600){
+		//BR = 48000000 / (16 * 9600) = 312 (0x138).
 		UART0->BDL = 0x38;
 		UART0->BDH = 0x1;
 	}
@@ -13,7 +20,7 @@ void uartConfigBoundRate(uint32_t baud){
 
 void UART0_init(uint32_t baud) {
 
-	// Select MCGFLLCLK as UART0 clock
+	// Select MCGFLLCLK (48MHz) as UART0 clock
 	SIM->SOPT2 |= (0b01 << 26);
 
 	// Enable UART0 Clock
@@ -58,15 +65,6 @@ void UART0_init(uint32_t baud) {
 
 	// Enable UART0 Interrupt
 	NVIC_EnableIRQ(UART0_IRQn);
-}
-
-/* Delay n milliseconds */
-/* The CPU core clock is set to MCGFLLCLK at 41.94 MHz in SystemInit(). */
-void delayMs(int n) {
-	int i;
-	int j;
-	for(i = 0 ; i < n; i++)
-		for (j = 0; j < 7000; j++) {}
 }
 
 void sendDataString(char *string){

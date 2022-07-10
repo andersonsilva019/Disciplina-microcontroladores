@@ -5,7 +5,7 @@ void sysPwmTPM2CH0(void) {
 	//Enable clock TPM2
 	SIM->SCGC6 |= (1 << 26);
 
-	//0 MCGFLLCLK clock
+	//0 MCGFLLCLK clock (48MHz)
 	SIM->SOPT2 &= ~(1 << 16);
 
 	SIM->SOPT2 |= (0b01 << 24);
