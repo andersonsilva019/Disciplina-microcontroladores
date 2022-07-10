@@ -77,9 +77,9 @@ void sendDataString(char *string){
 		// Sending caracter
 		UART0->D = *string;
 
-		__enable_irq();
-
 		string++;
+
+		__enable_irq();
 	}
 }
 

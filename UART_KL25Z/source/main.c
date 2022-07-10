@@ -34,6 +34,31 @@ void sleep(int n) {
 		for (int j = 0; j < 4800; ++j);
 }
 
+void setFlagLedOn(led_handler_status_t led_status){
+	switch(led_status){
+	case ledRed_ON:
+		isLedRedOn = 1;
+		isLedGreenOn = 0;
+		isLedBlueOn = 0;
+		break;
+	case ledBlue_ON:
+		isLedRedOn = 0;
+		isLedGreenOn = 0;
+		isLedBlueOn = 1;
+		break;
+	case ledGreen_ON:
+		isLedRedOn = 0;
+		isLedGreenOn = 1;
+		isLedBlueOn = 0;
+		break;
+	case ledsOFF:
+		isLedRedOn = 0;
+		isLedGreenOn = 0;
+		isLedBlueOn = 0;
+		break;
+	}
+}
+
 
 void uartControl(void){
 
@@ -48,10 +73,12 @@ void uartControl(void){
 			sendDataString("LED RED ON - keypressed (a) \r\n");
 			//ledRedOn();
 			ledRedOnWithPWM();
+
+			setFlagLedOn(ledRed_ON);
+
 			isLoggingStarted = 1;
-			isLedRedOn = 1;
-			isLedGreenOn = 0;
-			isLedBlueOn = 0;
+
+
 		}
 		break;
 	}
@@ -61,10 +88,11 @@ void uartControl(void){
 			sendDataString("LED BLUE ON - keypressed (s) \r\n");
 			//ledBlueOn();
 			ledBlueOnWithPWM();
+
+			setFlagLedOn(ledBlue_ON);
+
 			isLoggingStarted = 1;
-			isLedRedOn = 0;
-			isLedGreenOn = 0;
-			isLedBlueOn = 1;
+
 		}
 		break;
 	}
@@ -75,10 +103,11 @@ void uartControl(void){
 			sendDataString("LED GREEN ON - keypressed (d) \r\n");
 			//ledGreenOn();
 			ledGreenOnWithPWM();
+
+			setFlagLedOn(ledGreen_ON);
+
 			isLoggingStarted = 1;
-			isLedRedOn = 0;
-			isLedGreenOn = 1;
-			isLedBlueOn = 0;
+
 		}
 		break;
 	}
@@ -88,10 +117,11 @@ void uartControl(void){
 			sendDataString("LED RED, GREE and BLUE OFF - keypressed (w) \r\n");
 			//ledsOff();
 			ledsOffPWM();
+
+			setFlagLedOn(ledsOFF);
+
 			isLoggingStarted = 1;
-			isLedRedOn = 0;
-			isLedGreenOn = 0;
-			isLedBlueOn = 0;
+
 		}
 		break;
 	}

@@ -4,9 +4,9 @@
 void gpioInit(){
 	SIM->SCGC5 = (1 << 10) | (1 << 12); // Enable PORT B clock and PORT D.
 
-	PORTB->PCR[18] |= (1 << 24) | (0b011 << 8); // Set port B, pin 18 as GPIO (red led). (TPM2_CH0 - alt3)
-	PORTB->PCR[19] |= (1 << 24) | (0b011 << 8); // Set port B, pin 19 as GPIO (green led). (TPM2_CH1 - alt3)
-	PORTD->PCR[1]  |= (1 << 24) | (0b100 << 8); // Set port D, pin 1 as GPIO (blue led). (TPM0_CH1 - alt4)
+	PORTB->PCR[18] |= (1 << 24) | (pinMUX_ALT_3 << 8); // Set port B, pin 18 as GPIO (red led). (TPM2_CH0 - alt3)
+	PORTB->PCR[19] |= (1 << 24) | (pinMUX_ALT_3 << 8); // Set port B, pin 19 as GPIO (green led). (TPM2_CH1 - alt3)
+	PORTD->PCR[1]  |= (1 << 24) | (pinMUX_ALT_4 << 8); // Set port D, pin 1 as GPIO (blue led). (TPM0_CH1 - alt4)
 
 	GPIOB->PDDR |= (1 << 18); // GPIO_B pin 18 as output.
 	GPIOB->PSOR |= (1 << 18); // turn off red led.
