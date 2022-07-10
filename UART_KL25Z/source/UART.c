@@ -1,8 +1,17 @@
 #include "MKL25Z4.h"
 #include "UART.h"
 
-/* initialize UART0 to transmit at 115200 Baud */
-void UART0_init(void) {
+void uartConfigBoundRate(uint32_t baud){
+	if(baud == 115200){
+		UART0->BDL = 0x1A;
+		UART0->BDH = 0x0;
+	}else if(baud == 9600){
+		UART0->BDL = 0x38;
+		UART0->BDH = 0x1;
+	}
+}
+
+void UART0_init(uint32_t baud) {
 
 	// Select MCGFLLCLK as UART0 clock
 	SIM->SOPT2 |= (0b01 << 26);
@@ -19,9 +28,8 @@ void UART0_init(void) {
 	//PTA2 as ALT2 (UART0) -> UART0_TX
 	PORTA->PCR[2] |=  (0b010 << 8);
 
-	// Configure Baud Rate as 9600
-	UART0->BDL = 0x38;
-	UART0->BDH = 0x1;
+	// Configure Baud Rate
+	uartConfigBoundRate(baud);
 
 	/*
 	 * Configure Serial Port

@@ -2,16 +2,22 @@
 
 #include "UART.h"
 #include "GPIO.h"
+#include "pwm.h"
 
 #define KEY_LED_RED_ON 'a'
 #define KEY_LED_BLUE_ON 's'
 #define KEY_LED_GREEN_ON 'd'
 #define KEY_LEDS_OFF 'w'
+#define KEY_LED_SMOOTHING_MODE 'q'
 
 static uint8_t isMenuOpen;
 static uint8_t isLoggingStarted;
 
 volatile char userInputData;
+volatile char isLedRedOn;
+volatile char isLedGreenOn;
+volatile char isLedBlueOn;
+volatile uint16_t pwm;
 
 void menu(void){
 	sendDataString("=================================\r\n");
@@ -19,8 +25,15 @@ void menu(void){
 	sendDataString("s. LED BLUE ON\r\n");
 	sendDataString("d. LED GREEN ON\r\n");
 	sendDataString("w. LED RED, GREE and BLUE OFF\r\n");
+	sendDataString("q. SELECT SMOOTHING MODE\r\n");
 	sendDataString("=================================\r\n");
 }
+
+void sleep(int n) {
+	for (int i =  0; i < n; ++i)
+		for (int j = 0; j < 4800; ++j);
+}
+
 
 void uartControl(void){
 
@@ -29,30 +42,121 @@ void uartControl(void){
 		isMenuOpen = 1;
 	}
 
-	if (userInputData == KEY_LED_RED_ON){
+	switch(userInputData){
+	case KEY_LED_RED_ON: {
 		if(!isLoggingStarted){
 			sendDataString("LED RED ON - keypressed (a) \r\n");
-			ledRedOn();
+			//ledRedOn();
+			ledRedOnWithPWM();
 			isLoggingStarted = 1;
+			isLedRedOn = 1;
+			isLedGreenOn = 0;
+			isLedBlueOn = 0;
 		}
-	}else if (userInputData == KEY_LED_BLUE_ON){
+		break;
+	}
+
+	case KEY_LED_BLUE_ON: {
 		if(!isLoggingStarted){
 			sendDataString("LED BLUE ON - keypressed (s) \r\n");
-			ledBlueOn();
+			//ledBlueOn();
+			ledBlueOnWithPWM();
 			isLoggingStarted = 1;
+			isLedRedOn = 0;
+			isLedGreenOn = 0;
+			isLedBlueOn = 1;
 		}
-	}else if(userInputData == KEY_LED_GREEN_ON){
+		break;
+	}
+
+	case KEY_LED_GREEN_ON: {
+
 		if(!isLoggingStarted){
 			sendDataString("LED GREEN ON - keypressed (d) \r\n");
-			ledGreenOn();
+			//ledGreenOn();
+			ledGreenOnWithPWM();
 			isLoggingStarted = 1;
+			isLedRedOn = 0;
+			isLedGreenOn = 1;
+			isLedBlueOn = 0;
 		}
-	}else if(userInputData == KEY_LEDS_OFF){
+		break;
+	}
+
+	case KEY_LEDS_OFF: {
 		if(!isLoggingStarted){
 			sendDataString("LED RED, GREE and BLUE OFF - keypressed (w) \r\n");
-			ledsOff();
+			//ledsOff();
+			ledsOffPWM();
+			isLoggingStarted = 1;
+			isLedRedOn = 0;
+			isLedGreenOn = 0;
+			isLedBlueOn = 0;
+		}
+		break;
+	}
+
+	case KEY_LED_SMOOTHING_MODE: {
+		if(!isLoggingStarted){
+			sendDataString("SMOOTHING MODE- keypressed (q) \r\n");
+
+			if(isLedRedOn){
+				while(userInputData == KEY_LED_SMOOTHING_MODE){
+
+					// Decrement PWM
+					for(pwm = 0; pwm < TPM2_CH0_MOD; pwm += 81){
+						TPM2->CONTROLS[0].CnV = pwm;
+						sleep(100);
+					}
+
+					// Increment PWM
+					for(pwm = 819; pwm > 90; pwm -= 81){
+						TPM2->CONTROLS[0].CnV = pwm;
+						sleep(100);
+					}
+
+					pwm = 0;
+				}
+			}else if(isLedGreenOn){
+				while(userInputData == KEY_LED_SMOOTHING_MODE){
+
+					// Decrement PWM
+					for(pwm = 0; pwm < TPM2_CH1_MOD; pwm += 81){
+						TPM2->CONTROLS[1].CnV = pwm;
+						sleep(100);
+					}
+
+					// Increment PWM
+					for(pwm = 819; pwm > 90; pwm -= 81){
+						TPM2->CONTROLS[1].CnV = pwm;
+						sleep(100);
+					}
+
+					pwm = 0;
+				}
+			}else if(isLedBlueOn){
+				while(userInputData == KEY_LED_SMOOTHING_MODE){
+
+					// Decrement PWM
+					for(pwm = 0; pwm < TPM0_CH1_MOD; pwm += 81){
+						TPM0->CONTROLS[1].CnV = pwm;
+					}
+
+					// Increment PWM
+					for(pwm = 819; pwm > 90; pwm -= 81){
+						TPM0->CONTROLS[1].CnV = pwm;
+						sleep(100);
+					}
+
+					pwm = 0;
+				}
+			}
+
 			isLoggingStarted = 1;
 		}
+
+		break;
+	}
 	}
 
 }
@@ -68,15 +172,17 @@ void UART0_IRQHandler(void){
 }
 
 int main (void) {
-
 	// Configure System Clock
 	sysClockConfig();
 
-	// Initialize GPIO module
+	// Initialize UART module
 	gpioInit();
 
-	// Initialize UART module
-	UART0_init();
+	//PWM init
+	pwmInitModule();
+
+	// Initialize GPIO module
+	UART0_init(9600);
 
 	while (1) {
 		uartControl();
