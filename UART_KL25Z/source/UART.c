@@ -12,7 +12,7 @@ void uartConfigBoundRate(unsigned uint32_t baud) {
   value = 48000000 / (16 * baud);
 
   UART0->BDL = value & 0xFF;
-  UART0->BDH = (value & 0x1F00) >> 0xFF;
+  UART0->BDH = (value & 0x1F00) >> 8;
 }
 
 void UART0_init(uint32_t baud) {
